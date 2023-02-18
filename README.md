@@ -6,7 +6,7 @@
 ## Project Goal
 The primary goad is to create an easy to use and edit glossary of mortgage terms.
 
-## Tagret Audience
+## Target Audience
 
 * Anyone trying to purchase a property or understand more about the process and terminology used.
 
@@ -36,19 +36,19 @@ My design choices are to make a simple layout that will work on all devices from
 # Wireframe
 Wireframe views of the main pages that the site will have based on my required sections.
 
-## Welcome Screen
-
+## Main Screen
 ### Mobile
+![Mobile](/docs/wire_mobile.jpg "Mobile")
 
----
 ### Laptop / Desktop
-
+![Desktop](/docs/wire_desktop.jpg "Desktop")
 
 # Logical Code Outline
 
 ## Requirements
+* Ability to create an account / register, logon to add and edit.
 * Four main functions to allow the user to Create, Read, Update and Delete words and their associated descriptions.
-* Users should only be able to edit their own entries
+* Users should only be able to edit their own entries.
 
 ## High Level Program flow
 1. Main page is displayed with instructions
@@ -60,16 +60,26 @@ Wireframe views of the main pages that the site will have based on my required s
 # Database
 
 ## Table users
-
+|name | type |
+|-|-|
 | username | string |
-|--------|--------|
 | password| string |
 | display_name| string |
 | admin| bool |
 
+## Table terms
+
+|name | type |
+|-|-|
+| term | string |
+| description | string |
+| created_by | username|
+
+
+
 # Testing
 
-Manual testing will be carried out during development and after the major functions were completed.
+Manual testing will be carried out during development and after the major functions are completed.
 
 
 # Validation
@@ -97,10 +107,14 @@ Install Flask:
 Heroku requirements :
 * pip3 freeze --local > requirements.txt
 * echo web: python app.py > Procfile
-* Create a new app on heroku.com - pic
-* Connect Heroku to the GitHub repository - pic
+* Create a new app on heroku.com
+* Connect Heroku to the GitHub repository
 * git add requirements.txt
 * git add Procfile
+* pip3 install flask-pymongo
+* pip3 install dnspython
+* pip3 freeze --local > requirements.txt
+
 # Conclusion
 
 
