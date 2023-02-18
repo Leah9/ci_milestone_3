@@ -81,6 +81,8 @@ Manual testing will be carried out during development and after the major functi
 
 # Deployment
 
+Install Flask, pip3 install Flask
+
 
 # Conclusion
 
