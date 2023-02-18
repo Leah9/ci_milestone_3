@@ -57,6 +57,16 @@ Wireframe views of the main pages that the site will have based on my required s
 4. Option to create an account or login
 5. Options to add, edit or delete words if logged in.
 
+# Database
+
+## Table users
+
+| username | string |
+|--------|--------|
+| password| string |
+| display_name| string |
+| admin| bool |
+
 # Testing
 
 Manual testing will be carried out during development and after the major functions were completed.
@@ -71,9 +81,9 @@ Manual testing will be carried out during development and after the major functi
 
 # Performancee
 
-##Mobile device
+## Mobile device
 
-##Desktop
+## Desktop
 
 
 # Acknowledgements and credits
@@ -81,9 +91,16 @@ Manual testing will be carried out during development and after the major functi
 
 # Deployment
 
-Install Flask, pip3 install Flask
+Install Flask:
+* pip3 install Flask
 
-
+Heroku requirements :
+* pip3 freeze --local > requirements.txt
+* echo web: python app.py > Procfile
+* Create a new app on heroku.com - pic
+* Connect Heroku to the GitHub repository - pic
+* git add requirements.txt
+* git add Procfile
 # Conclusion
 
 
