@@ -1,9 +1,16 @@
 {% extends "base.html" %}
     {% block content %}
-    {% for term in terms %}
-        {{ term.name }}<br>
-        {{ term.description }}<br>
-        {{ term.created_by }}<br>
-        <br>
-    {% endfor %}
+
+    <ul class="collapsible">
+        {% for term in terms %}
+        <li>
+          <div class="collapsible-header purple lighten-2"><i class="material-icons">filter_drama</i>{{ term.name }}</div>
+          <div class="collapsible-body">
+            <p>{{ term.description }}</p>
+            <p>Created by : {{ term.created_by }}</p>
+        </div>
+        </li>
+        {% endfor %}
+
+      </ul>
 {% endblock %}
