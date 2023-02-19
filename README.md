@@ -90,6 +90,9 @@ Bugs and feature requests will be added as they are found.
 * No notification if registration is successful or not
 * Requires minimal bot protection
 * Notifications are not obvious enough, need styling
+* Logging in on Heroku does not work. https://mortgage-glossary.herokuapp.com/login
+
+## Resolved Bugs
 
 ## Planned Features
 
