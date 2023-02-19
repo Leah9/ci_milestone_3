@@ -81,13 +81,19 @@ Wireframe views of the main pages that the site will have based on my required s
 
 Manual testing will be carried out during development and after the major functions are completed.
 
-Bugs will be added as they are found.
+Bugs and feature requests will be added as they are found.
 
 ## Bugs
 
 * User registration requires restrictions and validation on user input
+* User registration needs explanation of username / password requirements
 * No notification if registration is successful or not
 * Requires minimal bot protection
+* Notifications are not obvious enough, need styling
+
+## Planned Features
+
+* 
 
 # Validation
 ## HTTP valid
@@ -118,9 +124,15 @@ Heroku requirements :
 * Connect Heroku to the GitHub repository
 * git add requirements.txt
 * git add Procfile
+
+MongoDB:
+* Create account and new collection
+* Create the required tables (terms and users)
 * pip3 install flask-pymongo
 * pip3 install dnspython
 * pip3 freeze --local > requirements.txt
+* Add the connection information to the evn file
+* Add the connection details on Heroku
 
 # Conclusion
 
