@@ -20,7 +20,7 @@
     <nav>
       <!-- Large display navbar-->
       <div class="nav-wrapper purple">
-        <a href="#!" class="brand-logo">Mortgage Glossary</a>
+        <a href="#!" class="brand-logo" >Mortgage Glossary</a>
         <a href="#" data-target="mobile-navbar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{{ url_for('get_terms') }}">Home</a></li>
@@ -31,19 +31,21 @@
             <li><a href="{{ url_for('register') }}">Register</a></li>
             <li><a href="{{ url_for('login') }}">Login</a></li>
           {% endif %}
+          <li><a href="{{ url_for('about') }}">About</a></li>
         </ul>
       </div>
     </nav>
     <!-- Small display nav -->
     <ul class="sidenav" id="mobile-navbar">
       <li><a href="{{ url_for('get_terms') }}">Home</a></li>
-        {% if session.user %}
-          <li><a href="{{ url_for('add_term') }}">Add Term</a></li>
-          <li><a href="{{ url_for('register') }}">Register</a></li>
-          <li><a href="{{ url_for('login') }}">Login</a></li>
-        {% else %}
-            <li><a href="{{ url_for('logout') }}">Logout</a></li>
-        {% endif %}
+      {% if session.user %}
+        <li><a href="{{ url_for('add_term') }}">Add Term</a></li>
+        <li><a href="{{ url_for('logout') }}">Logout</a></li>
+      {% else %}
+        <li><a href="{{ url_for('register') }}">Register</a></li>
+        <li><a href="{{ url_for('login') }}">Login</a></li>
+      {% endif %}
+      <li><a href="{{ url_for('about') }}">About</a></li>
 
     </ul>
   </header>
@@ -51,15 +53,15 @@
   {% if messages %}
   <ul class=flashes>
     {% for message in messages %}
-    <li>{{ message }}</li>
+      <li>{{ message }}</li>
     {% endfor %}
   </ul>
   {% endif %}
   {% endwith %}
-<div class="container">
-  {% block content %}
-  {% endblock %}
-</div>
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
 
   <script src="https://code.jquery.com/jquery-3.6.3.min.js"
     integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>

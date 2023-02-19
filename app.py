@@ -20,8 +20,15 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_terms")
 def get_terms():
-    terms = list(mongo.db.terms.find())
+    terms = list(mongo.db.terms.find().sort("name"))
+    print(terms)
     return render_template("terms.html", terms=terms)
+
+
+@app.route("/")
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -80,6 +87,7 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
 
 @app.route("/add_term", methods=["GET", "POST"])
 def add_term():
