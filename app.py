@@ -20,7 +20,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/get_terms")
 def get_terms():
-    terms = mongo.db.terms.find()
+    terms = list(mongo.db.terms.find())
     return render_template("terms.html", terms=terms)
 
 
@@ -60,6 +60,7 @@ def login():
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
                     flash("Welcome, {}".format(request.form.get("username")))
+                    return redirect(url_for("get_terms"))
             else:
                 # no match
                 flash("Incorrect Username and/or Password")
@@ -73,6 +74,30 @@ def login():
     return render_template("login.html")
 
 
+@app.route("/logout")
+def logout():
+    # remove user from session cookie
+    flash("You have been logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
+@app.route("/add_term", methods=["GET", "POST"])
+def add_term():
+    # On post create a dictionary then send it to the term table 
+    if request.method == "POST":
+        term = {
+            "name": request.form.get("name"),
+            "description": request.form.get("description"),
+            "created_by": session["user"]
+        }
+        # print(term)
+        mongo.db.terms.insert_one(term)
+        flash("Submitted, thank you!")
+        return redirect(url_for("get_terms"))
+    # Default behavior
+    return render_template(("add_term.html"))
+
+    
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
