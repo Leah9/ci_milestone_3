@@ -81,6 +81,13 @@ Wireframe views of the main pages that the site will have based on my required s
 
 Manual testing will be carried out during development and after the major functions are completed.
 
+Bugs will be added as they are found.
+
+## Bugs
+
+* User registration requires restrictions and validation on user input
+* No notification if registration is successful or not
+* Requires minimal bot protection
 
 # Validation
 ## HTTP valid
