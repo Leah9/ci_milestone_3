@@ -110,6 +110,10 @@ Bugs and feature requests will be added as they are found.
 
 
 # Acknowledgements and credits
+
+Images from https://www.pexels.com free license.
+Site based on tutorials from CI
+
  ## Favicon
 
 # Deployment
