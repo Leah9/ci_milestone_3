@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+    <h2>Edit Term</h2>
+    <form class="col s12" method="POST" action="{{ url_for('edit_term', term_id= term._id) }}">
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">star</i>
+                <input id="name" name="name" minlength="1" maxlength="30" type="text"
+                    class="validate" required value="{{ term.name }}">
+                <label for="name">Term</label>
+            </div>
+            <div class="input-field col s12">
+                <i class="material-icons prefix">star</i>
+                <input id="description" name="description" minlength="5" maxlength="500" type="text"
+                    class="validate materialize-textarea" value="{{ term.description }}" required>
+                <label for="description">Description</label>
+            </div>
+        </div>
+        <div class="row">
+            <button type="submit" class="col s12 btn-large purple darken-2 text-shadow">
+                Submit
+            </button>
+        </div>
+
+    </form>
+</div>
+{% endblock %}

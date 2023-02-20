@@ -105,6 +105,28 @@ def add_term():
     # Default behavior
     return render_template(("add_term.html"))
 
+
+@app.route("/edit_term/<term_id>", methods=["GET", "POST"])
+def edit_term(term_id):
+    # On post create a dictionary then send it to the term table 
+    if request.method == "POST":
+        edited = {
+            "name": request.form.get("name"),
+            "description": request.form.get("description"),
+            "created_by": session["user"]
+        }
+        print(edited)
+        mongo.db.terms.replace_one({"_id": ObjectId(term_id)}, edited)
+        flash("Updated, thank you!")
+        return redirect(url_for("get_terms"))
+    # Default behavior
+    # return render_template(("add_term.html"))
+
+    term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
+    return render_template("edit_term.html", term=term)
+
+
+
     
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
