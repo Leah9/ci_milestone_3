@@ -49,16 +49,18 @@
 
     </ul>
   </header>
-  {% with messages = get_flashed_messages() %}
-  {% if messages %}
-  <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-  </ul>
-  {% endif %}
-  {% endwith %}
+
   <div class="container">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+        <div class="collection  {{ category }}">
+          <div class="collection-item">{{ message }}</div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
     {% block content %}
     {% endblock %}
   </div>

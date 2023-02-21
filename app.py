@@ -39,7 +39,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username already exists", "warning")
             return redirect(url_for("register"))
 
         register = {
@@ -50,7 +50,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash("Registration Successful!")
+        flash("Registration Successful!", "info")
     return render_template("register.html")
 
 
@@ -66,16 +66,16 @@ def login():
             if check_password_hash(
                 existing_user["password"], request.form.get("password")):
                     session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
+                    flash(f"Welcome, {request.form.get('username')}", "info")
                     return redirect(url_for("get_terms"))
             else:
                 # no match
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Username and/or Password", "warning")
                 return redirect(url_for("login"))
 
         else:
             # username not found
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password", "warning")
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -84,7 +84,7 @@ def login():
 @app.route("/logout")
 def logout():
     # remove user from session cookie
-    flash("You have been logged out")
+    flash("You have been logged out", "info")
     session.pop("user")
     return redirect(url_for("login"))
 
@@ -100,7 +100,7 @@ def add_term():
         }
         # print(term)
         mongo.db.terms.insert_one(term)
-        flash("Submitted, thank you!")
+        flash("Submitted, thank you!", "info")
         return redirect(url_for("get_terms"))
     # Default behavior
     return render_template(("add_term.html"))
@@ -117,7 +117,7 @@ def edit_term(term_id):
         }
         print(edited)
         mongo.db.terms.replace_one({"_id": ObjectId(term_id)}, edited)
-        flash("Updated, thank you!")
+        flash("Updated, thank you!", "info")
         return redirect(url_for("get_terms"))
     # Default behavior
     # return render_template(("add_term.html"))
@@ -129,13 +129,14 @@ def edit_term(term_id):
 @app.route("/delete_confirm/<term_id>")
 def delete_confirm(term_id):
     term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
+    flash("WARNING", "warning")
     return render_template("delete_confirm.html", term=term)
 
 
 @app.route("/delete_term/<term_id>")
 def delete_term(term_id):
     mongo.db.terms.delete_one({"_id": ObjectId(term_id)})
-    flash("Term deleted")
+    flash("Term deleted", "info")
     return redirect(url_for("get_terms"))
 
 
