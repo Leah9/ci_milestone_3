@@ -126,6 +126,12 @@ def edit_term(term_id):
     return render_template("edit_term.html", term=term)
 
 
+@app.route("/delete_confirm/<term_id>")
+def delete_confirm(term_id):
+    term = mongo.db.terms.find_one({"_id": ObjectId(term_id)})
+    return render_template("delete_confirm.html", term=term)
+
+
 @app.route("/delete_term/<term_id>")
 def delete_term(term_id):
     mongo.db.terms.delete_one({"_id": ObjectId(term_id)})
