@@ -87,16 +87,28 @@ Bugs and feature requests will be added as they are found.
 
 * User registration requires restrictions and validation on user input
 * User registration needs explanation of username / password requirements
-* No notification if registration is successful or not
 * Requires minimal bot protection
-* Notifications are not obvious enough, need styling
-* The same term can be added multiple times.
+* The same term can be added multiple times
+
 
 
 ## Resolved Bugs
 
 * Logging in on Heroku does not work. https://mortgage-glossary.herokuapp.com/login
-Secrey key was not entered in Heroku config.
+    * Secrey key was not entered in Heroku config.
+
+
+* Notifications are not obvious enough, need styling
+    * Styled with materialize css to match the rest of the site.
+
+
+* No notification if registration is successful or not
+    * Now notified with flash message
+
+* Edit term is displayed on delete page instead of delete
+    * Corrected text
+
+
 
 ## Planned Features
 
@@ -119,6 +131,7 @@ Secrey key was not entered in Heroku config.
 # Acknowledgements and credits
 
 Images from https://www.pexels.com free license.
+https://flask.palletsprojects.com
 Site based on tutorials from CI
 
  ## Favicon
