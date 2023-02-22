@@ -113,7 +113,9 @@ Bugs and feature requests will be added as they are found.
 
 * Resolve 404 error by adding favicon.ico
 ## Planned Features
-* 
+* Search function
+* Account area with list of logged in users terms
+* Ability to add and use a display name in place of username
 
 # Validation
 ## HTTP valid
