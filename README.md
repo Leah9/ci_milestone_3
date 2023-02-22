@@ -89,6 +89,8 @@ Bugs and feature requests will be added as they are found.
 * User registration needs explanation of username / password requirements
 * Requires minimal bot protection
 * The same term can be added multiple times
+* Delete confirmation page needs go back or cancel button, not just delete.
+* Clicking the application name should return the user to the home page, It does nothing at present.
 
 
 
@@ -105,13 +107,12 @@ Bugs and feature requests will be added as they are found.
 * No notification if registration is successful or not
     * Now notified with flash message
 
+
 * Edit term is displayed on delete page instead of delete
     * Corrected text
 
-
-
+* Resolve 404 error by adding favicon.ico
 ## Planned Features
-
 * 
 
 # Validation
