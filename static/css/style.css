@@ -10,6 +10,14 @@ nav .brand-logo{
     float: right;
 }
 
+#delete_confirm{
+    float: left;
+}
+
+#cancel{
+    float:right;
+}
+
 /* Resolves overflow issue with Galaxy S10e and phones with smaller screens */
 @media (max-width:360px){
     nav .brand-logo{
