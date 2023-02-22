@@ -9,6 +9,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     type="text/css">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='static/images/apple-touch-icon.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='static/images/favicon-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='static/images/favicon-16x16.png') }}">
+  <link rel="manifest" href="/site.webmanifest">
   {% block styles %}
   {% endblock %}
   <title>Mortgage Glossary</title>
@@ -20,7 +24,7 @@
     <nav>
       <!-- Large display navbar-->
       <div class="nav-wrapper purple">
-        <a href="#!" class="brand-logo" >Mortgage Glossary</a>
+        <a href="{{ url_for('get_terms') }}" class="brand-logo" >Mortgage Glossary</a>
         <a href="#" data-target="mobile-navbar" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a href="{{ url_for('get_terms') }}">Home</a></li>
