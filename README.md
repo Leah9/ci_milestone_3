@@ -119,17 +119,23 @@ Bugs and feature requests will be added as they are found.
 
 # Validation
 ## HTTP valid
-
+https://validator.w3.org/nu/?doc=https%3A%2F%2Fmortgage-glossary.herokuapp.com%2Fget_terms
+Pass
 
 ## CSS valid
+https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fmortgage-glossary.herokuapp.com%2Fstatic%2Fcss%2Fstyle.css&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en
+Pass
 
+## Python
+Linted with Code Instutite linter.
 
-# Performancee
+# Performance
 
 ## Mobile device
+![Mobile](/docs/lighthouse_mobile.jpg "Mobile")
 
 ## Desktop
-
+![Mobile](/docs/lighthouse_desktop.jpg "Desktop")
 
 # Acknowledgements and credits
 
@@ -137,7 +143,8 @@ Images from https://www.pexels.com free license.
 https://flask.palletsprojects.com
 Site based on tutorials from CI
 
- ## Favicon
+## Favicon
+Created by https://favicon.io/
 
 # Deployment
 
@@ -160,7 +167,4 @@ MongoDB:
 * pip3 freeze --local > requirements.txt
 * Add the connection information to the evn file
 * Add the connection details on Heroku
-
-# Conclusion
-
 
