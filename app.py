@@ -1,6 +1,6 @@
 import os
 from flask import (
-    Flask, flash, render_template, redirect, 
+    Flask, flash, render_template, redirect,
     request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -16,6 +16,7 @@ app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
+
 
 @app.route("/")
 @app.route("/get_terms")
@@ -64,10 +65,10 @@ def login():
         if existing_user:
             # check hashed password matches user input
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash(f"Welcome, {request.form.get('username')}", "info")
-                    return redirect(url_for("get_terms"))
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash(f"Welcome, {request.form.get('username')}", "info")
+                return redirect(url_for("get_terms"))
             else:
                 # no match
                 flash("Incorrect Username and/or Password", "warning")
@@ -91,7 +92,7 @@ def logout():
 
 @app.route("/add_term", methods=["GET", "POST"])
 def add_term():
-    # On post create a dictionary then send it to the term table 
+    # On post create a dictionary then send it to the term table
     if request.method == "POST":
         term = {
             "name": request.form.get("name"),
@@ -108,7 +109,7 @@ def add_term():
 
 @app.route("/edit_term/<term_id>", methods=["GET", "POST"])
 def edit_term(term_id):
-    # On post create a dictionary then send it to the term table 
+    # On post create a dictionary then send it to the term table
     if request.method == "POST":
         edited = {
             "name": request.form.get("name"),
